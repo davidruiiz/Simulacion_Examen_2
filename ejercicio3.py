@@ -26,7 +26,7 @@
 
 import sys, os
 
-def fibonacci(n):
+def Fibonacci(n):
     private_cache = {}
     if n in private_cache:
         return private_cache[n]
@@ -35,8 +35,8 @@ def fibonacci(n):
     elif n==0 or n==1:
         return n
     else:
-        private_cache[n] = fibonacci(n-1) + fibonacci(n-2)
+        private_cache[n] = Fibonacci(n-1) + Fibonacci(n-2)
         return private_cache[n]
 
 if __name__ == '__main__':
-    print(fibonacci(100))
+    print(Fibonacci(30))
