@@ -12,3 +12,31 @@
 # representación decimal de cadena de un número de boleto de la suerte, o false/Falsepara
 # todos los demás números. Debería arrojar errores para cadenas vacías o cadenas que no
 # representan un número decimal.
+
+def suma_cadena_num(num):
+    suma = 0
+    for i in range(len(num)):
+        suma += int(num[i])
+    return suma
+
+def luck_check(str):
+    if str == "":
+        raise ValueError("No se puede ingresar una cadena vacía")
+    elif not str.isdigit():
+        raise ValueError("No se puede ingresar una cadena que no sea un número")
+    elif len(str) % 2 == 0:
+        mitad1 = str[:len(str)//2]
+        mitad2 = str[len(str)//2:]
+    else:
+        mitad1 = str[:len(str)//2]
+        mitad2 = str[len(str)//2+1:]
+    suma1 = suma_cadena_num(mitad1)
+    suma2 = suma_cadena_num(mitad2)
+    if suma1 == suma2:
+        return True
+    else:
+        return False
+
+if __name__ == "__main__":
+    print(luck_check("16325"))
+    print(luck_check("1237321"))
